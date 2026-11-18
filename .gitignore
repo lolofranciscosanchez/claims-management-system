@@ -1,0 +1,24 @@
+# Build output
+target/
+*.class
+*.jar
+*.log
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+.env
+application-local.yml
+
+# Claude Code local settings
+.claude/settings.local.json

@@ -1,0 +1,40 @@
+Issue Id,Parent Id,Issue Type,Summary,Description,Priority,Labels,Labels,Story Points
+1,,Epic,Analysis & Process Modeling,"Requirements specification, user stories, BPMN process model and flowcharts.",High,,,
+2,,Epic,Database Design & SQL,"Data model, Flyway migrations, seed data and analytical SQL queries.",High,,,
+3,,Epic,Customers & Catalog API,"REST endpoints for customers, services, departments, categories and employees.",High,,,
+4,,Epic,Claims API,"Core claim life cycle: open, assign, change status, comments, search.",High,,,
+5,,Epic,External API Integration,Argentine public holidays API used for SLA business-day calculation.,High,,,
+6,,Epic,Reporting,Management reports backed by SQL queries.,High,,,
+7,,Epic,Quality & DevOps,"Testing, CI, Docker, error handling.",High,,,
+8,,Epic,Documentation & Agile,"README, Confluence space, sprint reviews and retrospectives.",High,,,
+100,8,Task,Set up Jira project and Confluence space,"Create Jira Free project (key CMS, Scrum template), import this backlog, create Confluence space linked to the project.",High,sprint-0,hands-on,1
+101,1,Task,Write Software Requirements Specification,"Review and complete docs/requirements/software-requirements-specification.md (functional, non-functional requirements, business rules, traceability).",High,sprint-0,hands-on,3
+102,1,Story,Write user stories with acceptance criteria,Review docs/requirements/user-stories.md; every story has Given/When/Then criteria and estimate.,High,sprint-0,hands-on,2
+103,1,Task,Model claim handling process in BPMN 2.0,"Swimlanes Customer/Supervisor/Agent/System, gateways, timer events for SLA and auto-close. Export .bpmn and .png to docs/process.",High,sprint-0,hands-on,5
+104,1,Task,Draw flowchart: open claim use case,"Validations, duplicate check (BR-03), priority and SLA calculation.",Medium,sprint-0,hands-on,2
+105,1,Task,Draw flowchart: SLA due-date algorithm,"Business days, holidays, fallback when API is down.",Medium,sprint-0,hands-on,2
+106,2,Task,Design and review Entity-Relationship Diagram,Finalize docs/database/erd.md and document design decisions.,High,sprint-0,hands-on,3
+107,2,Story,Create database schema with Flyway (V1),"V1__create_schema.sql with tables, PK/FK, UNIQUE, CHECK constraints and indexes from the ERD.",High,sprint-1,agent-review,3
+108,2,Story,Load realistic seed data (V2),"Departments, categories, service types, 50 customers, 10 employees, 300 claims with history over 6 months.",Medium,sprint-1,agent-review,3
+109,2,Task,Write analytical SQL queries 01-05,"Queries listed in database/queries/README.md, with header comment and sample result.",High,sprint-1,hands-on,5
+110,2,Task,Write advanced SQL queries 06-10,"HAVING, window functions (RANK, LAG), CREATE VIEW.",Medium,sprint-1,hands-on,5
+111,2,Story,Map JPA entities and repositories,Entities matching the schema; ddl-auto=validate must pass.,High,sprint-1,agent-review,3
+112,7,Story,Global error handling with consistent JSON,"@RestControllerAdvice returning timestamp, status, error, message, path (NFR-06).",High,sprint-2,agent-review,2
+113,3,Story,US-01 Register and query customers,POST/GET /api/v1/customers with validation and 409 on duplicate document.,High,sprint-2,agent-review,3
+114,3,Story,"Catalog endpoints (departments, categories, employees)",Read endpoints used by the claims flow.,Medium,sprint-2,agent-review,2
+115,4,Story,US-02 Open a claim,"POST /api/v1/claims, claim number generation, default priority, BR-03 duplicate rule.",Highest,sprint-2,agent-review,5
+116,4,Story,US-04 Claim status state machine,PATCH /api/v1/claims/{id}/status; only valid transitions; 409 otherwise; history recorded.,Highest,sprint-2,hands-on,5
+117,4,Story,US-03 Assign claim to agent,Supervisor assigns; BR-02 department check; history recorded.,High,sprint-2,agent-review,3
+118,4,Story,US-06 Search claims with filters and pagination,"GET /api/v1/claims with status, category, department, date range; Pageable.",High,sprint-2,agent-review,3
+119,4,Story,US-07 Comments on claims,POST/GET /api/v1/claims/{id}/comments; BR-04.,Medium,sprint-2,agent-review,2
+120,7,Task,Document endpoints in Swagger/OpenAPI,"@Operation, @ApiResponse and examples for every endpoint (NFR-02).",Medium,sprint-2,agent-review,2
+121,5,Story,US-05 Holidays API client,Consume Nager.Date public holidays API for AR (GET /api/v3/PublicHolidays/{year}/AR) with RestClient; cache per year; fallback + warning log (NFR-07).,High,sprint-3,hands-on,5
+122,5,Story,SLA due-date calculation in business hours,"BR-01 hours by priority, skipping weekends and holidays; unit tests with edge cases.",High,sprint-3,agent-review,5
+123,6,Story,US-08 Report endpoints,"claims-by-status, avg-resolution-time, top-categories, sla-breaches using the SQL queries (native queries or projections).",High,sprint-3,agent-review,8
+124,7,Task,Postman collection with example requests,Export to docs/api/claims-management.postman_collection.json.,Medium,sprint-3,hands-on,2
+125,4,Story,US-09 Rate closed claim,Customer rating 1-5 only for CLOSED claims.,Low,sprint-4,agent-review,2
+126,7,Story,Unit tests for service layer (>=70% coverage),JUnit 5 + Mockito; add JaCoCo report.,High,sprint-4,agent-review,5
+127,7,Story,Integration tests for main endpoints,@SpringBootTest + MockMvc covering happy path and errors.,Medium,sprint-4,agent-review,3
+128,8,Task,Finish README in English with diagrams and screenshots,"Architecture, ERD, BPMN image, how to run, Swagger screenshot, API summary.",High,sprint-4,hands-on,2
+129,8,Task,Sprint reviews and retrospectives,"One file per sprint in docs/agile/sprints and page in Confluence, with Jira board/burndown screenshots.",Medium,sprint-4,hands-on,2
+130,8,Task,Release v1.0,Tag v1.0.0 on GitHub with release notes.,Medium,sprint-4,hands-on,1
