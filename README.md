@@ -21,13 +21,13 @@ Java 21 · Spring Boot 3 · Spring Data JPA · PostgreSQL · Flyway · springdoc
 
 ## Getting started
 
-**Requirements:** JDK 21, Maven 3.9+, Docker.
+**Requirements:** JDK 21 and Docker. Maven is not needed: the Maven Wrapper (`./mvnw`, or `mvnw.cmd` on Windows) downloads Maven 3.9.11 on first use.
 
 ```bash
 git clone https://github.com/lolofranciscosanchez/claims-management-system.git
 cd claims-management-system
 docker compose up -d          # PostgreSQL on localhost:5432
-mvn spring-boot:run           # API on http://localhost:8080
+./mvnw spring-boot:run        # API on http://localhost:8080 (Windows: mvnw.cmd)
 ```
 
 - Swagger UI: http://localhost:8080/swagger-ui.html

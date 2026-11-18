@@ -13,15 +13,16 @@ Read before working:
 **Everything in English**: code, identifiers, comments, commit messages, PR descriptions, documentation.
 
 ## Tech stack
-Java 21 · Spring Boot 3.5 · Maven · PostgreSQL 16 (Docker) · Flyway · Spring Data JPA · springdoc-openapi · JUnit 5 + Mockito · H2 (tests only).
+Java 21 · Spring Boot 3.5 · Maven (via wrapper) · PostgreSQL 16 (Docker) · Flyway · Spring Data JPA · springdoc-openapi · JUnit 5 + Mockito · H2 (tests only).
 
 ## Commands
 ```bash
 docker compose up -d        # start PostgreSQL
-mvn spring-boot:run         # run the API -> http://localhost:8080/swagger-ui.html
-mvn test                    # unit + integration tests
-mvn verify                  # full build (same as CI)
+./mvnw spring-boot:run      # run the API -> http://localhost:8080/swagger-ui.html
+./mvnw test                 # unit + integration tests
+./mvnw verify               # full build (same as CI)
 ```
+Use the Maven Wrapper (`./mvnw`, or `mvnw.cmd` on Windows); it pins Maven 3.9.11, so no local Maven install is needed.
 
 ## Architecture rules
 - Package by feature under `io.github.lolofranciscosanchez.claims`: `customer`, `claim`, `catalog`, `report`, `holiday`, `common` (errors, config).
@@ -37,7 +38,7 @@ mvn verify                  # full build (same as CI)
 1. Work on **one Jira ticket at a time** (the human gives you the key, e.g. `CMS-114`).
 2. Create a branch `feature/CMS-<n>-short-description`.
 3. Make small commits, each message starting with the key: `CMS-114: add claim status state machine`.
-4. Write or update tests for every change; `mvn verify` must pass.
+4. Write or update tests for every change; `./mvnw verify` must pass.
 5. Update docs affected by the change (README, SRS, ERD).
 6. Finish with a short summary for the human: what changed, why, how to test it in Swagger, and **concepts worth studying** for the interview.
 7. Tickets labelled `hands-on` in `jira/backlog.csv` are done by the human: you may explain, review or give hints, but do not write the full solution unless explicitly asked.

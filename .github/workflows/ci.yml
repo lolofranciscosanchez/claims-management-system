@@ -21,6 +21,6 @@ jobs:
         # Maven Central rate-limits shared GitHub runner IPs (HTTP 429).
         # Retry failed downloads more times, waiting longer between attempts.
         run: >
-          mvn -B -ntp verify
+          ./mvnw -B -ntp verify
           -Daether.connector.http.retryHandler.count=5
           -Daether.connector.http.retryHandler.interval=10000
