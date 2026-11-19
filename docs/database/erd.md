@@ -11,7 +11,7 @@ erDiagram
     CLAIM_CATEGORY ||--o{ CLAIM : "classifies"
     DEPARTMENT ||--o{ CLAIM_CATEGORY : "is responsible for"
     DEPARTMENT ||--o{ EMPLOYEE : "employs"
-    EMPLOYEE ||--o{ CLAIM : "is assigned"
+    EMPLOYEE |o--o{ CLAIM : "is assigned"
     CLAIM ||--o{ CLAIM_STATUS_HISTORY : "records"
     CLAIM ||--o{ CLAIM_COMMENT : "has"
 
