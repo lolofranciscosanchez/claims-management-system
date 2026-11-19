@@ -9,7 +9,7 @@ erDiagram
     CUSTOMER ||--o{ CLAIM : "opens"
     CUSTOMER_SERVICE ||--o{ CLAIM : "affected by"
     CLAIM_CATEGORY ||--o{ CLAIM : "classifies"
-    DEPARTMENT ||---{ CLAIM_CATEGORY : "is responsible for"
+    DEPARTMENT ||--o{ CLAIM_CATEGORY : "is responsible for"
     DEPARTMENT ||--o{ EMPLOYEE : "employs"
     EMPLOYEE ||--o{ CLAIM : "is assigned"
     CLAIM ||--o{ CLAIM_STATUS_HISTORY : "records"
