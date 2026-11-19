@@ -93,7 +93,7 @@ stateDiagram-v2
 | FR-09 | Agents and customers shall be able to add comments to a claim. | Should |
 | FR-10 | The system shall allow searching claims by status, category, department, customer and date range, with pagination. | Must |
 | FR-11 | The system shall provide reports: claims by status, average resolution time per department, top claim categories, and claims that breached the SLA. | Must |
-| FR-12 | The system shall mark claims as "SLA breached" when the due date passes and the claim is not resolved. | Should |
+| FR-12 | The system shall identify claims as "SLA breached" when the due date passes and the claim is not resolved. | Should |
 | FR-13 | A resolved claim shall be closed automatically after 72 hours without customer response. | Could |
 | FR-14 | The customer shall be able to rate the solution (1 to 5) when the claim is closed. | Could |
 
