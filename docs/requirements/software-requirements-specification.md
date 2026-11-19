@@ -30,6 +30,7 @@ Out of scope for version 1.0: user interface, payments, real authentication prov
 | Agent | Employee who works on claims. |
 | Supervisor | Employee who assigns claims and monitors performance. |
 | Business day | A weekday that is not a national holiday in Argentina. |
+| Status history record | A record of one status of a claim, with the date and time it started and ended. A record without an end date is the claim's current status. |
 
 ### 1.4 References
 - BPMN 2.0 process model: `docs/process/`
@@ -89,12 +90,12 @@ stateDiagram-v2
 | FR-05 | The system shall calculate the SLA due date using business days, excluding Argentine national holidays obtained from an external API. | Must |
 | FR-06 | A supervisor shall be able to assign a claim to an agent of the responsible department. | Must |
 | FR-07 | The system shall only allow the status transitions defined in section 2.3 and reject invalid ones with an error message. | Must |
-| FR-08 | Every status change shall be recorded in a history table with date, previous status, new status and user. | Must |
+| FR-08 | The system shall keep a complete, chronologically ordered history of each claim’s statuses, including when each status started and ended and the user who made each change.| Must |
 | FR-09 | Agents and customers shall be able to add comments to a claim. | Should |
 | FR-10 | The system shall allow searching claims by status, category, department, customer and date range, with pagination. | Must |
 | FR-11 | The system shall provide reports: claims by status, average resolution time per department, top claim categories, and claims that breached the SLA. | Must |
 | FR-12 | The system shall identify claims as "SLA breached" when the due date passes and the claim is not resolved. | Should |
-| FR-13 | A resolved claim shall be closed automatically after 72 hours without customer response. | Could |
+| FR-13 | A resolved claim shall be closed automatically after 72 hours without customer response. | Could (out of scope for v1.0) |
 | FR-14 | The customer shall be able to rate the solution (1 to 5) when the claim is closed. | Could |
 
 ---
@@ -124,18 +125,24 @@ stateDiagram-v2
 | BR-03 | A customer cannot have more than 3 open claims for the same service and category (to avoid duplicates). |
 | BR-04 | A claim in status CLOSED or REJECTED cannot be modified. |
 | BR-05 | Only a supervisor can change the priority or reject a claim. |
+| BR-06 | When a claim changes status, the end of the previous status and the start of the new one shall have the same timestamp, so the history has no gaps or overlaps. |
 
 ---
 
 ## 6. Traceability matrix
 
-| Requirement | User story | Jira epic |
-|---|---|---|
-| FR-01 | US-01 | CMS – Customers & Catalog API |
-| FR-02, FR-03 | US-02 | CMS – Claims API |
-| FR-05 | US-05 | CMS – External API integration |
-| FR-06, FR-07, FR-08 | US-03, US-04 | CMS – Claims API |
-| FR-10 | US-06 | CMS – Claims API |
-| FR-11 | US-08 | CMS – Reporting |
-
-*(Complete the matrix as new stories are added.)*
+| Requirement | User story | Jira tickets | Jira epic |
+|---|---|---|---|
+| FR-01 | US-01 | CMS-23 | CMS-4 – Customers & Catalog API |
+| FR-02, FR-03 | US-02 | CMS-25 | CMS-5 – Claims API |
+| FR-04 | US-02 | CMS-25 | CMS-5 – Claims API |
+| FR-05 | US-05 | CMS-31, CMS-32 | CMS-6 – External API Integration |
+| FR-06 | US-03 | CMS-27 | CMS-5 – Claims API |
+| FR-07 | US-04 | CMS-26 | CMS-5 – Claims API |
+| FR-08 | US-03, US-04 | CMS-26, CMS-27 | CMS-5 – Claims API |
+| FR-09 | US-07 | CMS-29 | CMS-5 – Claims API |
+| FR-10 | US-06 | CMS-28 | CMS-5 – Claims API |
+| FR-11 | US-08 | CMS-33 | CMS-7 – Reporting |
+| FR-12 | US-08 | CMS-33 | CMS-7 – Reporting |
+| FR-13 | — | — | Out of scope for v1.0 (Could priority) |
+| FR-14 | US-09 | CMS-35 | CMS-5 – Claims API |
