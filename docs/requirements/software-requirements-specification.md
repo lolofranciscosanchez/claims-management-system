@@ -142,7 +142,7 @@ stateDiagram-v2
 | FR-08 | US-03, US-04 | CMS-26, CMS-27 | CMS-5 – Claims API |
 | FR-09 | US-07 | CMS-29 | CMS-5 – Claims API |
 | FR-10 | US-06 | CMS-28 | CMS-5 – Claims API |
-| FR-11 | US-08 | CMS-33 | CMS-7 – Reporting |
-| FR-12 | US-08 | CMS-33 | CMS-7 – Reporting |
+| FR-11 | US-08a, US-08b | CMS-33, CMS-41 | CMS-7 – Reporting |
+| FR-12 | US-08a | CMS-33 | CMS-7 – Reporting |
 | FR-13 | — | — | Out of scope for v1.0 (Could priority) |
 | FR-14 | US-09 | CMS-35 | CMS-5 – Claims API |
