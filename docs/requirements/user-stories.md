@@ -21,9 +21,9 @@ Acceptance criteria use **Given / When / Then** (Gherkin style).
 **As a** customer, **I want** to open a claim describing my problem **so that** the company can solve it.
 
 **Acceptance criteria**
-- **Given** an existing customer and service, **when** I send `POST /api/v1/claims`, **then** the claim is created in status `OPEN` with a number like `CLM-2026-000123`.
+- **Given** an existing customer and service, **when** I send `POST /api/v1/claims`, **then** the claim is created with a number like `CLM-2026-000123`.
+- **Then** the first status history record is created with status `OPEN` and its start time.
 - **Then** the priority and SLA due date are calculated automatically.
-- **Given** the customer already has 3 open claims for the same service and category, **then** I get `422 Unprocessable Entity` (BR-03).
 
 **Story points:** 5 · **Requirements:** FR-02, FR-03, FR-04
 
@@ -35,7 +35,7 @@ Acceptance criteria use **Given / When / Then** (Gherkin style).
 **Acceptance criteria**
 - **Given** a claim in `OPEN`, **when** I assign an agent of the correct department, **then** the status changes to `ASSIGNED`.
 - **Given** an agent from another department, **then** I get `422` (BR-02).
-- **Then** the change is saved in the status history.
+- **Then** the current status record is closed and a new one is opened with the same timestamp (BR-06).
 
 **Story points:** 3 · **Requirements:** FR-06, FR-08
 
@@ -47,7 +47,7 @@ Acceptance criteria use **Given / When / Then** (Gherkin style).
 **Acceptance criteria**
 - **Given** a valid transition (see state diagram in the SRS), **when** I send `PATCH /api/v1/claims/{id}/status`, **then** the status is updated.
 - **Given** an invalid transition (e.g. `OPEN` → `CLOSED`), **then** I get `409 Conflict` with a clear message.
-- **Then** each change is stored in `claim_status_history`.
+- **Then** the current status record is closed and a new one is opened with the same timestamp (BR-06).
 
 **Story points:** 5 · **Requirements:** FR-07, FR-08
 
@@ -87,17 +87,27 @@ Acceptance criteria use **Given / When / Then** (Gherkin style).
 
 ---
 
-## US-08 — Management reports
-**As a** supervisor, **I want** reports about claims **so that** I can make decisions based on data.
+## US-08a — Operational reports
+**As a** supervisor, **I want** to see how many claims are in each status and which ones breached the SLA **so that** I can react to problems quickly.
 
 **Acceptance criteria**
-- `GET /api/v1/reports/claims-by-status`
-- `GET /api/v1/reports/avg-resolution-time` (per department, in hours)
-- `GET /api/v1/reports/top-categories?limit=5`
-- `GET /api/v1/reports/sla-breaches`
+- `GET /api/v1/reports/claims-by-status` returns the number of claims per current status.
+- `GET /api/v1/reports/sla-breaches` returns unresolved claims whose SLA due date has passed, ordered by due date.
 - Each report is backed by a SQL query documented in `database/queries/`.
 
-**Story points:** 8 · **Requirement:** FR-11
+**Story points:** 3 · **Requirements:** FR-11, FR-12
+
+---
+
+## US-08b — Performance reports
+**As a** supervisor, **I want** to see the average resolution time per department and the most frequent claim categories **so that** I can improve the service.
+
+**Acceptance criteria**
+- `GET /api/v1/reports/avg-resolution-time` returns the average resolution time per department, in hours.
+- `GET /api/v1/reports/top-categories?limit=5` returns the categories with the most claims in a date range.
+- Each report is backed by a SQL query documented in `database/queries/`.
+
+**Story points:** 5 · **Requirement:** FR-11
 
 ---
 
