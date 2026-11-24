@@ -10,7 +10,7 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
-This document specifies the functional and non-functional requirements of the **Claims Management System**, a back-end application that allows a telecommunications company to register, assign, track and resolve customer claims (technical issues, billing errors, service requests).
+This document specifies the functional and non-functional requirements of the **Claims Management System**, a back-end application that allows an internet, mobile and TV service provider to register, assign, track and resolve customer claims (technical issues, billing errors, service requests).
 
 ### 1.2 Scope
 The system exposes a REST API consumed by:
@@ -48,7 +48,7 @@ Stand-alone back-end service built with Java 21, Spring Boot 3 and PostgreSQL, d
 
 | Actor | Description |
 |---|---|
-| Customer | Holder of one or more telecom services (mobile line, internet, TV). |
+| Customer | Holder of one or more contracted services (mobile line, internet, TV). |
 | Agent | Belongs to one department; resolves claims. |
 | Supervisor | Manages a department; assigns and escalates claims. |
 | External system | Public holidays API used to calculate SLA due dates. |

@@ -15,7 +15,7 @@
     <artifactId>claims-management-system</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <name>Claims Management System</name>
-    <description>REST API to register, track and resolve customer claims for a telecom company</description>
+    <description>REST API to register, track and resolve customer claims for an internet, mobile and TV service provider</description>
 
     <properties>
         <java.version>21</java.version>

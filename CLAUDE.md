@@ -1,7 +1,7 @@
 # CLAUDE.md — Instructions for AI coding agents
 
 ## Project context
-Claims Management System: a Spring Boot REST API for a telecom company to register, assign, track and resolve customer claims. It is a **portfolio project** for an IT internship. The human owner must be able to explain every line in a job interview, so **clarity beats cleverness**.
+Claims Management System: a Spring Boot REST API for an internet, mobile and TV service provider to register, assign, track and resolve customer claims. It is a **portfolio project** for an IT internship. The human owner must be able to explain every line in a job interview, so **clarity beats cleverness**.
 
 Read before working:
 - `docs/requirements/software-requirements-specification.md` (FR, NFR, business rules)

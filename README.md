@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/lolofranciscosanchez/claims-management-system/actions/workflows/ci.yml/badge.svg)
 
-REST API that allows a telecommunications company to **register, assign, track and resolve customer claims** (technical issues, billing errors, service requests), with SLA calculation based on Argentine business days and management reports.
+REST API that allows an internet, mobile and TV service provider to **register, assign, track and resolve customer claims** (technical issues, billing errors, service requests), with SLA calculation based on Argentine business days and management reports.
 
 > 🚧 **Work in progress** — built following Scrum. See the [release plan](docs/agile/sprint-plan.md).
 
