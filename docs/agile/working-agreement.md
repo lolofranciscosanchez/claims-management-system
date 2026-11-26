@@ -36,6 +36,7 @@ The project follows **Scrum** adapted to a one-person team (with an AI coding as
 - [ ] Acceptance criteria verified manually (Postman collection updated).
 - [ ] Related documentation updated (README / SRS / ERD).
 - [ ] Pull request merged and Jira ticket moved to **Done**.
+- [ ] Related documents checked for consistency (SRS ↔ user stories ↔ diagrams ↔ ERD).
 
 ## Estimation
 Fibonacci story points: 1, 2, 3, 5, 8. Anything bigger than 8 must be split.
