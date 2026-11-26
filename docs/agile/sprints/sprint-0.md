@@ -39,8 +39,13 @@
 | Build | CI fixed (Maven Central rate limit) and Maven Wrapper added. | `.github/workflows/ci.yml` |
 
 ### Evidence
-- Jira board at the end of the sprint: `![Sprint 0 board](./img/sprint-0-board.png)`
-- Jira sprint report: `![Sprint 0 report](./img/sprint-0-report.png)`
+- Jira board at the end of the sprint:
+
+  ![Sprint 0 board](./img/sprint-0-board.png)
+
+- Jira sprint report:
+
+  ![Sprint 0 report](./img/sprint-0-report.png)
 
 ## Retrospective
 
