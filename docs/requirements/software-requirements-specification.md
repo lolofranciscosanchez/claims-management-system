@@ -126,6 +126,7 @@ stateDiagram-v2
 | BR-04 | A claim in status CLOSED or REJECTED cannot be modified. |
 | BR-05 | Only a supervisor can change the priority or reject a claim. |
 | BR-06 | When a claim changes status, the end of the previous status and the start of the new one shall have the same timestamp, so the history has no gaps or overlaps. |
+| BR-07 | A claim can only reference a service that belongs to the claim's customer and is not CANCELLED. |
 
 ---
 
