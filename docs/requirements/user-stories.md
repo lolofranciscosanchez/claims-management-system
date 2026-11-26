@@ -24,6 +24,8 @@ Acceptance criteria use **Given / When / Then** (Gherkin style).
 - **Given** an existing customer and service, **when** I send `POST /api/v1/claims`, **then** the claim is created with a number like `CLM-2026-000123`.
 - **Then** the first status history record is created with status `OPEN` and its start time.
 - **Then** the priority and SLA due date are calculated automatically.
+- **Given** the customer already has 3 open claims for the same service and category, **then** I get `422 Unprocessable Entity` (BR-03).
+- **Given** a service that belongs to another customer or is `CANCELLED`, **then** I get `422 Unprocessable Entity` (BR-07).
 
 **Story points:** 5 · **Requirements:** FR-02, FR-03, FR-04
 
