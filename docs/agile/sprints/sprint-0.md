@@ -39,19 +39,16 @@
 | Build | CI fixed (Maven Central rate limit) and Maven Wrapper added. | `.github/workflows/ci.yml` |
 
 ### Evidence
-<!-- Add the screenshots to ./img/ and keep these names, or update the links. -->
 - Jira board at the end of the sprint: `![Sprint 0 board](./img/sprint-0-board.png)`
 - Jira sprint report: `![Sprint 0 report](./img/sprint-0-report.png)`
 
 ## Retrospective
-<!-- Your own reflection. Guiding questions:
-     - What helped you move forward? (tools, decisions, the way you worked)
-     - What slowed you down or took longer than expected? Why?
-     - What would you do differently in Sprint 1?
-     - Each action item should be concrete and checkable at the end of the next sprint. -->
+
 
 | What went well | What to improve | Action items |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| Learning Jira and Confluence was quick and straightforward. | Cards were sometimes moved from To Do straight to Done, skipping In Progress. | Move a card to In Progress when starting it; work on one card at a time. |
+| Design decisions (status history, BR-07, SLA business hours) were discussed and documented before coding. | Some commit messages did not start with the Jira key. | Start every commit with `CMS-xx:`; connect GitHub for Jira to check it. |
+| The traceability matrix found a requirement with no user story (FR-13) and an inconsistency in US-08. | Editing one document sometimes broke consistency with another (lost BR-03 criterion, outdated names). | After each change, check the related documents (SRS ↔ user stories ↔ diagrams). |
+| All committed work was delivered (18/18 points). | Several fix-up commits for file names and exports (`.svg.svg`, `.drawio.png`, dark backgrounds). | Check the file name and preview the image before committing. |
+| | The sprint was closed one day after the planned end date. | Keep the last day of each sprint for review and retrospective. |
