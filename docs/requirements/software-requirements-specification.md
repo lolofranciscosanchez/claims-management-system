@@ -31,6 +31,7 @@ Out of scope for version 1.0: user interface, payments, real authentication prov
 | Supervisor | Employee who assigns claims and monitors performance. |
 | Business day | A weekday that is not a national holiday in Argentina. |
 | Status history record | A record of one status of a claim, with the date and time it started and ended. A record without an end date is the claim's current status. |
+| Business hours | The 24 hours of each business day. SLA time only runs on business days. |
 
 ### 1.4 References
 - BPMN 2.0 process model: `docs/process/`
