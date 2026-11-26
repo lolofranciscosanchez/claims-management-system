@@ -6,7 +6,7 @@ This folder contains the business process models of the claims management proces
 
 ![Open claim flowchart](flowchart-open-claim.png)
 
-![Open claim flowchart](flowchart-open-claim.png)
+![SLA calculation flowchart](flowchart-sla-calculation.png)
 
 ## Deliverables
 
