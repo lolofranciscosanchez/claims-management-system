@@ -4,12 +4,14 @@ This folder contains the business process models of the claims management proces
 
 ![Claim handling process](claim-handling-process.svg)
 
+![Open claim flowchart](flowchart-open-claim.png)
+
 ## Deliverables
 
 | File | Content | Tool | Status |
 |---|---|---|---|
 | `claim-handling-process.bpmn` + `.svg` | BPMN 2.0 model of the end-to-end claim process: **Customer** pool (collapsed) and **Service Provider** pool with lanes **System**, **Supervisor** and **Agent**. | bpmn.io | Done |
-| `flowchart-open-claim.png` | Flowchart of the "Open claim" use case (validations, duplicate check BR-03, priority and SLA calculation). | draw.io | To do (CMS-14) |
+| `flowchart-open-claim.png` | Flowchart of the "Open claim" use case (validations, duplicate check BR-03, priority and SLA calculation). | draw.io | Done (CMS-14) |
 | `flowchart-sla-calculation.png` | Flowchart of the SLA due-date algorithm (business days + holidays + API fallback). | draw.io | To do (CMS-15) |
 | `flowchart-status-change.png` | Flowchart of a status change (permission check, transition validation, history record). | draw.io | Optional |
 
